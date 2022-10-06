@@ -1,23 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from "react";
+import { getShips } from "./api/starships";
 
 function App() {
+  const [starShips, setStarShips] = useState([]);
+
+  useEffect(() => {
+    getShips().then((data) => setStarShips(data.results));
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {starShips.map((ship) => (
+        <div key={ship.name}>
+          <h4>{ship.name.toUpperCase()}</h4>
+          <p>{ship.model}</p>
+        </div>
+      ))}
     </div>
   );
 }
