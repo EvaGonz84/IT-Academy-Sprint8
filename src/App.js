@@ -1,22 +1,14 @@
-import { useState, useEffect } from "react";
-import { getShips } from "./api/starships";
-
+import Ships from "./components/Ships";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import ShipDetails from "./components/ShipDetails";
 function App() {
-  const [starShips, setStarShips] = useState([]);
-
-  useEffect(() => {
-    getShips().then((data) => setStarShips(data.results));
-  }, []);
-
   return (
-    <div className="App">
-      {starShips.map((ship) => (
-        <div key={ship.name}>
-          <h4>{ship.name.toUpperCase()}</h4>
-          <p>{ship.model}</p>
-        </div>
-      ))}
-    </div>
+    <Router>
+      <Routes>
+        <Route exact path="/" element={<Ships />} />
+        <Route path="/shipdetails/:id" element={<ShipDetails/>} />
+      </Routes>
+    </Router>
   );
 }
 
