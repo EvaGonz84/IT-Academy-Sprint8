@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { GlobalStyle, Container } from "./Ships.styles";
 
 const Ships = () => {
   const [starShips, setStarShips] = useState([]);
@@ -12,16 +13,20 @@ const Ships = () => {
 
 
   return (
-    <div>
+    <>
+    <GlobalStyle/>
+    
       {starShips.map((ship) => (
-        <div key={ship.name}>
-          <Link to={`/shipdetails/${Number(ship.url.split("/").slice(-2)[0])}`}>
+        <Container key={ship.name}>
+          
+          <Link style={{color:'grey', textDecoration:'none'}} to={`/shipdetails/${Number(ship.url.split("/").slice(-2)[0])}`}>
             {ship.name.toUpperCase()}
           </Link>
           <p>{ship.model}</p>
-        </div>
+        </Container>
       ))}
-    </div>
+     
+    </>
   );
 };
 

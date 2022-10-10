@@ -1,6 +1,6 @@
-import Ships from "./components/Ships";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import ShipDetails from "./components/ShipDetails";
+import ShipDetails from "./components/ShipDetails/ShipDetails";
+import Ships from "./components/Ships/Ships";
 function App() {
   return (
     <Router>
