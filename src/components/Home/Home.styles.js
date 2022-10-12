@@ -11,14 +11,3 @@ export const GlobalStyle = createGlobalStyle`
         
 	}
 `;
-
-export const Container = styled.div`
-  display: flex;
-  justify-content: flex-start;
-  flex-direction: column;
-  background-color: #191919;
-  margin: 10px 20%;
-  padding: 15px;
-  color: grey;
- 
-`;

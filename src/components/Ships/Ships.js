@@ -28,7 +28,7 @@ const Ships = () => {
       {starShips.map((ship) => (
         <Container key={ship.name}>
           <Link
-            style={{ color: "grey", textDecoration: "none" }}
+            style={{ color: "grey", textDecoration: "none"}}
             to={`/shipdetails/${Number(ship.url.split("/").slice(-2)[0])}`}
           >
             {ship.name.toUpperCase()}
