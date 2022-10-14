@@ -5,10 +5,7 @@ export const GlobalStyle = createGlobalStyle`
     background-color: #040303;
         margin:5px;
         padding:5px;
-        color: grey;
-
-        
-   
+        color: grey;  
         
 	}
 `;
@@ -25,4 +22,8 @@ export const ContainerDetails = styled.div`
   display: flex;
   justify-content: space-between;
   flex-direction: row;
+`;
+
+export const DivDetails = styled.div`
+  padding: 5px;
 `;

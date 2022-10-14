@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import styled from "styled-components";
 import {
   GlobalStyle,
   ContainerDetails,
   Container,
+  DivDetails,
 } from "./ShipDetails.styles.js";
 
 const ShipDetails = () => {
@@ -29,16 +31,16 @@ const ShipDetails = () => {
         <h2>{details.name}</h2>
 
         <ContainerDetails>
-          <div style={{ padding: "5px" }}>
+          <DivDetails>
             <p>Model:{details.model}</p>
             <p>Cost in credits:{details.cost_in_credits}</p>
             <p>Atmospheric speed:{details.max_atmosphering_speed}</p>
-          </div>
-          <div style={{ padding: "5px" }}>
+          </DivDetails>
+          <DivDetails>
             <p>Manufacturer:{details.manufacturer}</p>
             <p>Length:{details.length}</p>
             <p>Crew:{details.crew}</p>
-          </div>
+          </DivDetails>
         </ContainerDetails>
       </Container>
     </>

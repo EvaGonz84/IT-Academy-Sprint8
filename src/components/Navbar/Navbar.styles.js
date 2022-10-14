@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
+import { FaBars } from "react-icons/fa";
 
 const desktopStartWidth = 996;
 const mobile = `@media (max-width: ${desktopStartWidth}px)`;
@@ -7,20 +8,39 @@ const mobile = `@media (max-width: ${desktopStartWidth}px)`;
 export const HeaderContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  margin: 15px 10px 0 0;
+  flex-wrap: wrap;
+  margin: 15px 10px 20px 0;
+
+  ${mobile} {
+    display: flex;
+    justify-content: space-between;
+  }
+`;
+
+export const BurgerIcon = styled(FaBars)`
+    width: 50px;
+    &:hover {
+      color: #dddddd;
+      transition: 0.3s ease-in-out;
+    }
 `;
 
 export const HeaderDiv = styled.div`
-  transform: rotate(90deg);
-
-  margin-right: 140px;
+  margin-right: 100px;
+  margin-left: 20px;
   font-size: 30px;
   opacity: 0;
 
   ${mobile} {
-    width: 100%;
+    display: block;
+    margin-right: -1px;
     opacity: 1;
-    cursor: pointer;
+  }
+`;
+
+export const LinksContainer = styled.div`
+  ${mobile} {
+    font-size: 12px;
   }
 `;
 
@@ -28,19 +48,35 @@ export const NavContainer = styled.nav`
   background-color: black;
   display: flex;
   justify-content: center;
-  font-weight: 20px;
+  font-weight: bold;
   border-width: 1px;
   border-style: solid;
   border-color: grey transparent;
+
+  ${mobile} {
+    position: absolute;
+    top: 200px;
+    left: ${({ open }) => (open ? "0" : "-100%")};
+    width: 100%;
+    height: 70%;
+    margin-right: 100px;
+    flex-direction: column;
+    align-items: center;
+    transition: 0.6s all ease;
+  }
 `;
 
 export const NavbarLinkHeader = styled(NavLink)`
   color: grey;
   text-decoration: none;
   margin: 10px;
-
+  font-weight: bold;
+  transition: 0.3s ease-in-out;
   &:hover {
-    color: white;
+    color: #dddddd;
+  }
+  ${mobile} {
+    display: block;
   }
 `;
 
@@ -48,8 +84,15 @@ export const NavbarLink = styled(NavLink)`
   margin: 20px;
   color: grey;
   text-decoration: none;
-
+  transition: 0.3s ease-in-out;
   &:hover {
     color: white;
+  }
+  ${mobile} {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 70px;
   }
 `;

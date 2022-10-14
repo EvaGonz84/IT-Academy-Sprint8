@@ -1,31 +1,41 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   HeaderContainer,
   NavbarLink,
   NavContainer,
   NavbarLinkHeader,
   HeaderDiv,
+  LinksContainer,
+  BurgerIcon,
 } from "./Navbar.styles";
 
 const Navbar = () => {
+  const [showMenu, setShowMenu] = useState(false);
+
   return (
     <div>
       <HeaderContainer>
-        <HeaderDiv class="toggle">|||</HeaderDiv>
+        <HeaderDiv onClick={() => setShowMenu(!showMenu)}>
+          <BurgerIcon />
+        </HeaderDiv>
         <img
           src={require("../Images/star-wars-logo.jpg")}
           alt="star wars logo"
           width={"200px"}
         ></img>
-        <div>
+        <LinksContainer>
           <NavbarLinkHeader>LOG IN</NavbarLinkHeader>
 
           <NavbarLinkHeader>SIGN UP</NavbarLinkHeader>
-        </div>
+        </LinksContainer>
       </HeaderContainer>
-      <NavContainer>
-        <NavbarLink to="/">HOME</NavbarLink>
-        <NavbarLink to="/starships">STARSHIPS</NavbarLink>
+      <NavContainer open={showMenu}>
+        <NavbarLink onClick={() => setShowMenu(!showMenu)} to="/">
+          HOME
+        </NavbarLink>
+        <NavbarLink onClick={() => setShowMenu(!showMenu)} to="/starships">
+          STARSHIPS
+        </NavbarLink>
       </NavContainer>
     </div>
   );

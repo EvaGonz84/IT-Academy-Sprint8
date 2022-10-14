@@ -1,13 +1,13 @@
 import React from 'react'
-
+import {GlobalStyle} from '../Ships/Ships.styles'
 const NotFound = () => {
   return (
     <>
-    
-    <h2>
+    <GlobalStyle/>
+    <h1 style={{display:'flex', justifyContent:'center'}}>
         404
         Not Found
-    </h2>
+    </h1>
     
     </>
   )
