@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
+import img from "../Images/stars.jpg";
 
 const desktopStartWidth = 996;
 const mobile = `@media (max-width: ${desktopStartWidth}px)`;
@@ -9,7 +10,9 @@ export const HeaderContainer = styled.div`
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  margin: 15px 10px 20px 0;
+  padding: 15px 10px 20px 0;
+  background-image: url(${img});
+  
 
   ${mobile} {
     display: flex;
@@ -18,11 +21,12 @@ export const HeaderContainer = styled.div`
 `;
 
 export const BurgerIcon = styled(FaBars)`
-    width: 50px;
-    &:hover {
-      color: #dddddd;
-      transition: 0.3s ease-in-out;
-    }
+  width: 50px;
+  color: grey;
+  &:hover {
+    color: #dddddd;
+    transition: 0.3s ease-in-out;
+  }
 `;
 
 export const HeaderDiv = styled.div`
@@ -55,7 +59,7 @@ export const NavContainer = styled.nav`
 
   ${mobile} {
     position: absolute;
-    top: 200px;
+    top: 140px;
     left: ${({ open }) => (open ? "0" : "-100%")};
     width: 100%;
     height: 70%;

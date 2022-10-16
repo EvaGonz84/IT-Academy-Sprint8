@@ -27,3 +27,9 @@ export const ContainerDetails = styled.div`
 export const DivDetails = styled.div`
   padding: 5px;
 `;
+
+export const Line = styled.hr`
+  margin-top: 0px;
+  border: 1px solid #D75281;
+  width: 100%;
+`;

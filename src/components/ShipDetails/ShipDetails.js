@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import styled from "styled-components";
+
 import {
   GlobalStyle,
   ContainerDetails,
   Container,
   DivDetails,
+  Line,
 } from "./ShipDetails.styles.js";
 
 const ShipDetails = () => {
@@ -27,6 +28,7 @@ const ShipDetails = () => {
           src={`https://starwars-visualguide.com/assets/img/starships/${id}.jpg`}
           alt={`starship-${details.name}`}
         />
+        <Line></Line>
 
         <h2>{details.name}</h2>
 

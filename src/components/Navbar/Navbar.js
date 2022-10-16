@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import {
   HeaderContainer,
   NavbarLink,
@@ -18,11 +19,13 @@ const Navbar = () => {
         <HeaderDiv onClick={() => setShowMenu(!showMenu)}>
           <BurgerIcon />
         </HeaderDiv>
+        <Link to={'/'}>
         <img
           src={require("../Images/star-wars-logo.jpg")}
           alt="star wars logo"
           width={"200px"}
         ></img>
+        </Link>
         <LinksContainer>
           <NavbarLinkHeader>LOG IN</NavbarLinkHeader>
 
