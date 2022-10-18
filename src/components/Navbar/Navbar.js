@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   HeaderContainer,
   NavbarLink,
@@ -8,10 +8,19 @@ import {
   HeaderDiv,
   LinksContainer,
   BurgerIcon,
+  Button,
 } from "./Navbar.styles";
+
+
 
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
+  const navigate = useNavigate();
+
+  const logout = ()=>{
+     sessionStorage.removeItem('userEmail');
+    navigate('/login');
+  }
 
   return (
     <div>
@@ -27,9 +36,10 @@ const Navbar = () => {
         ></img>
         </Link>
         <LinksContainer>
-          <NavbarLinkHeader>LOG IN</NavbarLinkHeader>
+          <NavbarLinkHeader  to={'/login'}>LOG IN</NavbarLinkHeader>
 
-          <NavbarLinkHeader>SIGN UP</NavbarLinkHeader>
+          <NavbarLinkHeader to={'/signup'}>SIGN UP</NavbarLinkHeader>
+          <Button onClick={logout}>LOG OUT</Button>
         </LinksContainer>
       </HeaderContainer>
       <NavContainer open={showMenu}>

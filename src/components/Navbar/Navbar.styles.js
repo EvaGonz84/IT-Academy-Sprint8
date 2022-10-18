@@ -30,7 +30,7 @@ export const BurgerIcon = styled(FaBars)`
 `;
 
 export const HeaderDiv = styled.div`
-  margin-right: 100px;
+  margin-right: 150px;
   margin-left: 20px;
   font-size: 30px;
   opacity: 0;
@@ -99,4 +99,22 @@ export const NavbarLink = styled(NavLink)`
     width: 100%;
     height: 70px;
   }
+`;
+
+export const Button = styled.button`
+  padding:5px;
+  background-color:white;
+  border-radius:5px;
+  color: grey;
+  font-weight: bolder;
+  transition: 0.3s ease-in-out;
+
+  &:hover{
+    color:white;
+    background-color: #3c4048;
+    border-color:white;
+
+  }
+
+
 `;
