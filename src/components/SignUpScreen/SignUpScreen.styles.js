@@ -59,3 +59,9 @@ export const Button = styled.button`
     width: 65%;
   }
 `;
+
+export const Span = styled.span`
+  color: red;
+  display: block;
+  margin-top: 5px;
+`;

@@ -1,68 +1,74 @@
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
 import { GlobalStyle } from "../ShipDetails/ShipDetails.styles";
 import {
   ContainerSignUp,
   InputEmail,
   Title,
   Button,
+  Span
 } from "./SignUpScreen.styles";
+import { useForm } from "react-hook-form";
 
 const SignUp = () => {
-  const [userEmail, setUserEmail] = useState("");
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
   const localEmail = localStorage.getItem("userEmail");
   const navigate = useNavigate();
 
-  const handleLogin = (event) => {
-    event.preventDefault();
-    if (!userEmail.trim()) {
-      alert("Error!!No deje espacios en blanco");
-    } else if (!userEmail.includes("@")) {
-      alert("error,debe contener @");
-    } else if (userEmail === localEmail) {
-      alert("logeate");
+  const onSubmit = (event) => {
+    
+    if (JSON.stringify(event) === localEmail) {
+      console.log("Ya estás registrado");
       navigate("/login");
     } else {
-      localStorage.setItem("userEmail", userEmail);
+      localStorage.setItem("userEmail", JSON.stringify(event));
       navigate("/");
+      console.log(`Bienvenido usuario con email:${JSON.stringify(event)}`);
     }
   };
 
-  const handleClick = () => {
-    if (userEmail === localEmail) {
-      alert("Estás registrado");
-      navigate("/login");
-    } else {
-      localStorage.setItem("userEmail", userEmail);
-    }
-  };
-
-  return (
-    <>
-      <GlobalStyle />
-      <ContainerSignUp>
-        <img
-          src={require("../Images/logo2.jpg")}
-          alt="logo star-wars"
-          width={"150px"}
-        ></img>
-        <Title>CREATE YOUR ACCOUNT</Title>
-        <form style={{ width: "500px" }} onSubmit={handleLogin}>
-          <div>
-            <InputEmail
-              type="text"
-              value={userEmail}
-              placeholder="Email Address"
-              onChange={(e) => setUserEmail(e.target.value)}
-            ></InputEmail>
-          </div>
-          <div>
-            <Button onClick={handleClick}>Continue</Button>
-          </div>
-        </form>
-      </ContainerSignUp>
-    </>
-  );
+    return (
+      <>
+        <GlobalStyle />
+        <ContainerSignUp>
+          <img
+            src={require("../Images/logo2.jpg")}
+            alt="logo star-wars"
+            width={"150px"}
+          ></img>
+          <Title>CREATE YOUR ACCOUNT</Title>
+          <form style={{ width: "500px" }} onSubmit={handleSubmit(onSubmit)}>
+            <div>
+              <InputEmail
+                type="text"
+                name="email"
+                autoComplete="off"
+                placeholder="Email Address"
+                {...register("email", {
+                  required: {
+                    value: true,
+                    message: "Se requiere un email",
+                  },
+                  pattern: {
+                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+                    message: "El formato email no es correcto",
+                  },
+                })}
+              ></InputEmail>
+              {errors.email && <Span>{errors.email.message}</Span>}
+            </div>
+            <div>
+              <Button>Continue</Button>
+            </div>
+          </form>
+        </ContainerSignUp>
+      </>
+    );
+  
 };
 
 export default SignUp;
