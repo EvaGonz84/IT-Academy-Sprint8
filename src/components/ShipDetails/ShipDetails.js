@@ -23,6 +23,7 @@ const ShipDetails = () => {
   return (
     <>
       <GlobalStyle />
+
       <Container>
         <img
           src={`https://starwars-visualguide.com/assets/img/starships/${id}.jpg`}

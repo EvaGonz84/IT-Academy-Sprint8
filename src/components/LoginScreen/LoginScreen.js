@@ -9,6 +9,8 @@ import {
 } from "../SignUpScreen/SignUpScreen.styles";
 
 import { useForm } from "react-hook-form";
+import { useContext } from "react";
+import { UserContext } from "../../context/UserProvider";
 
 const LoginScreen = () => {
   const {
@@ -18,10 +20,12 @@ const LoginScreen = () => {
   } = useForm();
   const localEmail = localStorage.getItem("userEmail");
   const navigate = useNavigate();
+  const { setUser } = useContext(UserContext);
 
   const onSubmit = (event) => {
     if (JSON.stringify(event) === localEmail) {
       console.log(`Bienvenido usuario con email:${JSON.stringify(event)}`);
+      setUser(true);
       navigate("/");
     } else {
       console.log("Aún no estás registrado,crea una cuenta");

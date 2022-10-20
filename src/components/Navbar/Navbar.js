@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { UserContext } from "../../context/UserProvider";
 import {
   HeaderContainer,
   NavbarLink,
@@ -11,16 +12,21 @@ import {
   Button,
 } from "./Navbar.styles";
 
-
-
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
   const navigate = useNavigate();
+  const { user, setUser } = useContext(UserContext);
 
-  const logout = ()=>{
-     sessionStorage.removeItem('userEmail');
-    navigate('/login');
-  }
+  const login = () => {
+    setUser(true);
+    console.log(localStorage.getItem("userEmail"));
+  };
+
+  const logout = () => {
+    setUser(false);
+    sessionStorage.removeItem("userEmail");
+    navigate("/login");
+  };
 
   return (
     <div>
@@ -28,18 +34,24 @@ const Navbar = () => {
         <HeaderDiv onClick={() => setShowMenu(!showMenu)}>
           <BurgerIcon />
         </HeaderDiv>
-        <Link to={'/'}>
-        <img
-          src={require("../Images/star-wars-logo.jpg")}
-          alt="star wars logo"
-          width={"200px"}
-        ></img>
+        <Link to={"/"}>
+          <img
+            src={require("../Images/star-wars-logo.jpg")}
+            alt="star wars logo"
+            width={"200px"}
+          ></img>
         </Link>
         <LinksContainer>
-          <NavbarLinkHeader  to={'/login'}>LOG IN</NavbarLinkHeader>
-
-          <NavbarLinkHeader to={'/signup'}>SIGN UP</NavbarLinkHeader>
-          <Button onClick={logout}>LOG OUT</Button>
+          {!user ? (
+            <>
+              <NavbarLinkHeader onClick={login} to={"/"}>
+                LOG IN
+              </NavbarLinkHeader>
+              <NavbarLinkHeader to={"/signup"}>SIGN UP</NavbarLinkHeader>
+            </>
+          ) : (
+            <Button onClick={logout}>LOG OUT</Button>
+          )}
         </LinksContainer>
       </HeaderContainer>
       <NavContainer open={showMenu}>

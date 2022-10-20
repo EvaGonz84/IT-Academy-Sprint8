@@ -12,7 +12,6 @@ export const HeaderContainer = styled.div`
   flex-wrap: wrap;
   padding: 15px 10px 20px 0;
   background-image: url(${img});
-  
 
   ${mobile} {
     display: flex;
@@ -30,7 +29,7 @@ export const BurgerIcon = styled(FaBars)`
 `;
 
 export const HeaderDiv = styled.div`
-  margin-right: 150px;
+  margin-right: 100px;
   margin-left: 20px;
   font-size: 30px;
   opacity: 0;
@@ -102,19 +101,22 @@ export const NavbarLink = styled(NavLink)`
 `;
 
 export const Button = styled.button`
-  padding:5px;
-  background-color:white;
-  border-radius:5px;
+  padding: 5px;
+  background-color: white;
+  border-radius: 5px;
   color: grey;
   font-weight: bolder;
   transition: 0.3s ease-in-out;
+  margin-left: 100px;
 
-  &:hover{
-    color:white;
+  &:hover {
+    color: white;
     background-color: #3c4048;
-    border-color:white;
-
+    border-color: white;
   }
 
-
+  ${mobile} {
+    margin-left: auto;
+    font-size: 10px;
+  }
 `;
