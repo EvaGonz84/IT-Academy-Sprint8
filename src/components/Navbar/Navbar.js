@@ -18,8 +18,8 @@ const Navbar = () => {
   const { user, setUser } = useContext(UserContext);
 
   const login = () => {
-    setUser(true);
-    console.log(localStorage.getItem("userEmail"));
+ 
+    
   };
 
   const logout = () => {
@@ -44,7 +44,7 @@ const Navbar = () => {
         <LinksContainer>
           {!user ? (
             <>
-              <NavbarLinkHeader onClick={login} to={"/"}>
+              <NavbarLinkHeader onClick={login} to={"/login"}>
                 LOG IN
               </NavbarLinkHeader>
               <NavbarLinkHeader to={"/signup"}>SIGN UP</NavbarLinkHeader>

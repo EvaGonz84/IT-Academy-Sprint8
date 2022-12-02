@@ -11,6 +11,7 @@ import {
 import { useForm } from "react-hook-form";
 import { useContext } from "react";
 import { UserContext } from "../../context/UserProvider";
+import Swal from "sweetalert2";
 
 const LoginScreen = () => {
   const {
@@ -24,11 +25,25 @@ const LoginScreen = () => {
 
   const onSubmit = (event) => {
     if (JSON.stringify(event) === localEmail) {
-      console.log(`Bienvenido usuario con email:${JSON.stringify(event)}`);
+      Swal.fire({
+        title: "Welcome user",
+        text: `${JSON.stringify(event)}`,
+        icon: "success",
+        color: '#f1f1f1',
+        background: '#434242',
+        confirmButtonColor: '#2D31FA',
+      });
       setUser(true);
       navigate("/");
     } else {
-      console.log("Aún no estás registrado,crea una cuenta");
+      Swal.fire({
+        title: "Ooops",
+        text: 'You are not registered, please create an account',
+        icon: "warning",
+        color: '#f1f1f1',
+        background: '#434242',
+        confirmButtonColor: '#2D31FA',
+      });
       navigate("/signup");
     }
   };
@@ -53,11 +68,11 @@ const LoginScreen = () => {
               {...register("email", {
                 required: {
                   value: true,
-                  message: "Se requiere un email",
+                  message: "An email is required",
                 },
                 pattern: {
                   value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-                  message: "El formato email no es correcto",
+                  message: "The email is not correct, please check it",
                 },
               })}
             ></InputEmail>

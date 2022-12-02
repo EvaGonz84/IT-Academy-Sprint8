@@ -43,6 +43,7 @@ const ShipDetails = () => {
             <p>Manufacturer:{details.manufacturer}</p>
             <p>Length:{details.length}</p>
             <p>Crew:{details.crew}</p>
+            <p>{details.pilots}</p>
           </DivDetails>
         </ContainerDetails>
       </Container>

@@ -31,13 +31,15 @@ export const ContainerImage = styled.div`
 `;
 
 export const ContainerText = styled.div`
-  padding-left: 50px;
-  dipslay: flex;
-  justify-content: center;
-  align-items: center;
+  width: 50%;
+  margin-left: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 
   ${mobile} {
-    padding-left: 10px;
+    width: 90%;
+    margin: 10px auto;
     text-align: center;
   }
 `;
@@ -53,12 +55,13 @@ export const Title = styled.h2`
 
 export const Subtitle = styled.h3`
   margin-top: -20px;
-  width: 50%;
+ 
 
   ${mobile} {
     font-size: 20px;
     margin-top: 1px;
     width: 100%;
+   
   }
 `;
 
