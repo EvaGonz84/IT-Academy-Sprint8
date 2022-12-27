@@ -7,7 +7,8 @@ const mobile = `@media (max-width: ${desktopStartWidth}px)`;
 export const GlobalStyle = createGlobalStyle`
 	body {
 		    background-color: #040303;
-        color: white;   
+        color: white; 
+         
 	}
 `;
 
@@ -36,6 +37,7 @@ export const ContainerText = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  
 
   ${mobile} {
     width: 90%;

@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route} from "react-router-dom";
 import Home from "./components/Home/Home";
 import Navbar from "./components/Navbar/Navbar";
 import NotFound from "./components/NotFound/NotFound";
@@ -14,7 +14,7 @@ function App() {
   return (
     <div className="App">
       <UserProvider>
-        <Router>
+        <BrowserRouter basename='/STAR-WARS-'>
           <Navbar />
           <Routes>
             <Route exact path="/" element={<Home />} />
@@ -31,9 +31,9 @@ function App() {
             <Route path="/signup" element={<SignUpScreen />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
-        </Router>
+          </BrowserRouter>
       </UserProvider>
-      ,
+      
     </div>
   );
 }

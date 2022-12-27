@@ -12,7 +12,15 @@ export const ContainerSignUp = styled.div`
   margin-top: 5px;
 
   ${mobile} {
-    width: 100%;
+    max-width: 95%;
+    margin: 5px auto;
+  }
+`;
+
+export const Form = styled.form`
+  width: 40%;
+  ${mobile} {
+    width: 75%;
   }
 `;
 
@@ -36,7 +44,7 @@ export const InputEmail = styled.input`
     caret-color: yellow;
   }
   ${mobile} {
-    width: 60%;
+    width: 80%;
   }
 `;
 
@@ -56,7 +64,7 @@ export const Button = styled.button`
     background-color: #1363df;
   }
   ${mobile} {
-    width: 65%;
+    width: 87%;
   }
 `;
 

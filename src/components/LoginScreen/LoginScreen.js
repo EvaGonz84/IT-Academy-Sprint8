@@ -1,13 +1,13 @@
 import { useNavigate } from "react-router-dom";
 import { GlobalStyle } from "../ShipDetails/ShipDetails.styles";
 import {
-  Button,
   ContainerSignUp,
+  Form,
   InputEmail,
-  Span,
   Title,
-} from "../SignUpScreen/SignUpScreen.styles";
-
+  Button,
+  Span,
+} from "./LoginScreen.styles";
 import { useForm } from "react-hook-form";
 import { useContext } from "react";
 import { UserContext } from "../../context/UserProvider";
@@ -29,20 +29,20 @@ const LoginScreen = () => {
         title: "Welcome user",
         text: `${JSON.stringify(event)}`,
         icon: "success",
-        color: '#f1f1f1',
-        background: '#434242',
-        confirmButtonColor: '#2D31FA',
+        color: "#f1f1f1",
+        background: "#434242",
+        confirmButtonColor: "#2D31FA",
       });
       setUser(true);
       navigate("/");
     } else {
       Swal.fire({
         title: "Ooops",
-        text: 'You are not registered, please create an account',
+        text: "You are not registered, please create an account",
         icon: "warning",
-        color: '#f1f1f1',
-        background: '#434242',
-        confirmButtonColor: '#2D31FA',
+        color: "#f1f1f1",
+        background: "#434242",
+        confirmButtonColor: "#2D31FA",
       });
       navigate("/signup");
     }
@@ -58,7 +58,7 @@ const LoginScreen = () => {
           width={"150px"}
         ></img>
         <Title>ENTER YOUR EMAIL ADDRESS</Title>
-        <form style={{ width: "500px" }} onSubmit={handleSubmit(onSubmit)}>
+        <Form onSubmit={handleSubmit(onSubmit)}>
           <div>
             <InputEmail
               type="text"
@@ -81,7 +81,7 @@ const LoginScreen = () => {
           <div>
             <Button>Continue</Button>
           </div>
-        </form>
+        </Form>
       </ContainerSignUp>
     </>
   );

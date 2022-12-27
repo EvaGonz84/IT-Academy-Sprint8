@@ -16,6 +16,7 @@ export const HeaderContainer = styled.div`
   ${mobile} {
     display: flex;
     justify-content: space-between;
+    padding: 15px 5px 15px 0;
   }
 `;
 
@@ -58,7 +59,7 @@ export const NavContainer = styled.nav`
 
   ${mobile} {
     position: absolute;
-    top: 140px;
+    top: 112px;
     left: ${({ open }) => (open ? "0" : "-100%")};
     width: 100%;
     height: 70%;
@@ -66,6 +67,7 @@ export const NavContainer = styled.nav`
     flex-direction: column;
     align-items: center;
     transition: 0.6s all ease;
+    border: none;
   }
 `;
 
@@ -80,6 +82,7 @@ export const NavbarLinkHeader = styled(NavLink)`
   }
   ${mobile} {
     display: block;
+    margin:5px;
   }
 `;
 

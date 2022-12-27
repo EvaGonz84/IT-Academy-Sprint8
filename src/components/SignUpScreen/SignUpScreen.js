@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { GlobalStyle } from "../ShipDetails/ShipDetails.styles";
 import {
   ContainerSignUp,
+  Form,
   InputEmail,
   Title,
   Button,
@@ -58,7 +59,7 @@ const SignUp = () => {
           width={"150px"}
         ></img>
         <Title>CREATE YOUR ACCOUNT</Title>
-        <form style={{ width: "500px" }} onSubmit={handleSubmit(onSubmit)}>
+        <Form onSubmit={handleSubmit(onSubmit)}>
           <div>
             <InputEmail
               type="text"
@@ -81,7 +82,7 @@ const SignUp = () => {
           <div>
             <Button>Continue</Button>
           </div>
-        </form>
+        </Form>
       </ContainerSignUp>
     </>
   );

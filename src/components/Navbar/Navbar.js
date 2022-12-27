@@ -38,7 +38,7 @@ const Navbar = () => {
           <img
             src={require("../Images/star-wars-logo.jpg")}
             alt="star wars logo"
-            width={"200px"}
+            width={"150px"}
           ></img>
         </Link>
         <LinksContainer>
